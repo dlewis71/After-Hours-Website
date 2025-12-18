@@ -1,0 +1,144 @@
+/* =========================
+   1. Root Variables / Theme Defaults
+========================= */
+:root {
+  --font-size: 16px;
+  --font-family: 'Arial, sans-serif';
+  
+  /* Default to Dark Mode */
+  --text-color: #ffffff;
+  --background-color: #000000;
+  --card-bg: #111111;
+  --primary-color: #c94f7c;
+  --accent-color: #f8b195;
+  --button-text-color: #ffffff;
+  
+  /* Layout Constants */
+  --nav-height: 60px;
+  --timer-height: 50px;
+}
+
+/* =========================
+   2. Global Reset & Layout
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,li,a {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+a { text-decoration: none; }
+
+/* =========================
+   3. App Structure (Sticky Footer)
+========================= */
+.app-root { display: flex; flex-direction: column; min-height: 100vh; }
+.app-main { flex: 1; display: flex; flex-direction: column; width: 100%; }
+
+/* =========================
+   4. Navbar & Timer (Global Layout)
+========================= */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--background-color);
+  z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: background-color 0.3s ease;
+}
+
+.trial-timer,
+.trial-expired {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  height: var(--timer-height);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  z-index: 1001;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   5. Inputs & Buttons (Global Defaults)
+========================= */
+input, textarea, select {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(201, 79, 124, 0.2);
+}
+
+input:disabled, textarea:disabled { opacity: 0.6; cursor: not-allowed; }
+
+button {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:enabled:hover { background-color: var(--accent-color); transform: translateY(-1px); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* =========================
+   6. Footer
+========================= */
+footer {
+  margin-top: auto;
+  background: var(--primary-color);
+  color: var(--button-text-color);
+  text-align: center;
+  padding: 1rem;
+  border-top: 4px solid var(--accent-color);
+}

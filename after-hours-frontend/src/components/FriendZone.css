@@ -1,0 +1,435 @@
+/* =========================
+   Global Reset & Layout
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body, .app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+  font-size: var(--theme-font-size, 16px);
+  color: var(--theme-text-color, #333);
+  background-color: var(--theme-background-color, #fcefee);
+  scroll-behavior: smooth;
+}
+
+.app-main {
+  flex: 1 0 auto;
+  display: flex;
+}
+
+/* =========================
+   Navbar
+========================= */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--theme-background-color, #fcefee);
+  z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   Trial Timer
+========================= */
+.trial-timer,
+.trial-expired {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: var(--theme-background-color, #fcefee);
+  color: var(--theme-text-color, #333);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 1001;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  flex-shrink: 0;
+  background: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-background-color, #fff);
+  text-align: center;
+  padding: 1rem;
+  border-top: 4px solid var(--theme-accent-color, #f8b195);
+}
+
+/* =========================
+   Buttons
+========================= */
+button {
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-background-color, #fff);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+  font-size: var(--theme-font-size, 16px);
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+button:enabled:hover {
+  background-color: var(--theme-accent-color, #f8b195);
+  border: 2px solid var(--theme-primary-color, #c94f7c);
+}
+
+button:disabled {
+  background-color: var(--theme-background-color, #f9f9f9);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* =========================
+   Inputs & Textareas
+========================= */
+input, textarea {
+  background-color: var(--theme-background-color, #fff);
+  color: var(--theme-text-color, #333);
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+  font-size: var(--theme-font-size, 16px);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--theme-primary-color, #c94f7c);
+}
+
+input:disabled, textarea:disabled {
+  background-color: rgba(0,0,0,0.05);
+  cursor: not-allowed;
+}
+
+/* =========================
+   Cards / Sections
+========================= */
+.card, .section, .profile-card, .customize-theme .card, .post-card {
+  background-color: var(--theme-background-color, #fff);
+  color: var(--theme-text-color, #333);
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 16px;
+  margin-bottom: 0;
+}
+
+/* =========================
+   FriendZone
+========================= */
+.friendzone-section {
+  width: 80%;
+  max-width: 850px;
+  min-width: 600px;
+  margin: 20px auto 0 auto;
+  padding: 24px;
+  background-color: var(--theme-background-color, #fcefee);
+  color: var(--theme-text-color, #333);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.friendzone-section h2 {
+  color: var(--theme-primary-color, #c94f7c);
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.locked-message {
+  color: var(--theme-primary-color, #c94f7c);
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.friendzone-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 350px;
+}
+
+/* Sidebar */
+.chat-sidebar {
+  flex: 1 1 250px;
+  background-color: var(--theme-background-color, #fff);
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-height: 250px;
+  overflow-y: auto;
+  color: var(--theme-text-color, #333);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+}
+
+.chat-sidebar h3 {
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: var(--theme-primary-color, #c94f7c);
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  min-height: 60px;
+  color: var(--theme-text-color, #333);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+}
+
+.user-item:hover {
+  background-color: var(--theme-accent-color, #f8b195);
+  color: var(--theme-background-color, #fff);
+}
+
+.user-item.selected {
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-background-color, #fff);
+}
+
+.user-item img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Main chat area */
+.chat-main {
+  flex: 3 1 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--theme-background-color, #fff);
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-height: 250px;
+  color: var(--theme-text-color, #333);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+}
+
+.chat-main h4 {
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: var(--theme-primary-color, #c94f7c);
+}
+
+.messages-box {
+  flex: 1;
+  overflow-y: auto;
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  border-radius: 12px;
+  padding: 8px;
+  background-color: var(--theme-background-color, #f9f9f9);
+  margin-bottom: 12px;
+  color: var(--theme-text-color, #333);
+}
+
+.message {
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: background-color 0.2s;
+  color: var(--theme-text-color, #333);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+}
+
+.message:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.time {
+  font-size: 0.7rem;
+  color: var(--theme-accent-color, #999);
+}
+
+/* Chat form */
+.chat-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chat-form input {
+  flex: 1 1 200px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--theme-accent-color, #ccc);
+  outline: none;
+  color: var(--theme-text-color, #333);
+  background-color: var(--theme-background-color, #fff);
+  font-size: var(--theme-font-size, 16px);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+}
+
+.chat-form input:disabled {
+  background-color: rgba(0,0,0,0.05);
+  cursor: not-allowed;
+}
+
+.chat-form button {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--theme-accent-color, #f8b195);
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-background-color, #fff);
+  font-family: var(--theme-font-family, 'Arial, sans-serif');
+  font-size: var(--theme-font-size, 16px);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-form button:hover:enabled {
+  background-color: var(--theme-accent-color, #f8b195);
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+  .friendzone-section {
+    padding: 16px;
+  }
+
+  .friendzone-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .chat-sidebar,
+  .chat-main {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .user-item {
+    height: 70px;
+  }
+
+  .user-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .chat-form {
+    flex-direction: column;
+  }
+
+  .chat-form input,
+  .chat-form button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   5. Inputs & Buttons (Global Defaults)
+========================= */
+button {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Back to Group Chat Button */
+.profile-btn.back-to-group-btn {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+}
+
+/* Send & Clear Buttons */
+.profile-btn.send-btn,
+.profile-btn.clear-btn {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s;
+}
+
+button:enabled:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================
+   General Button Styles for Consistency
+========================= */
+.profile-btn {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Button Hover/Active Effects */
+.profile-btn:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Disabled Button Style
+========================= */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

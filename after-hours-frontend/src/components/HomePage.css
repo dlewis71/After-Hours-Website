@@ -1,0 +1,19 @@
+/* Spacer for top padding */
+.spacer {
+  height: 20px;
+}
+
+/* Profile + ThemeCustomizer layout */
+.profile-theme-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-wrapper,
+.theme-wrapper {
+  flex: 1 1 400px;
+  min-width: 300px;
+}

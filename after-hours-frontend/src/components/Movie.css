@@ -1,0 +1,176 @@
+/* =========================
+   Video Container & Section
+========================= */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fcefee;
+}
+
+.video-section {
+  width: 700px;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fcefee;
+}
+
+/* =========================
+   Video Heading and Player
+========================= */
+.video-heading {
+  font-size: 2rem;
+  color: #c94f7c;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.video-player {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.video-image {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* =========================
+   Video Overlay Message
+========================= */
+.video-overlay-message {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px;
+  pointer-events: none;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   Recommendation Buttons
+========================= */
+.recommendation-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  align-items: center;  /* Center buttons if they wrap */
+}
+
+.recommendation-button {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  background-color: #c94f7c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommendation-button:hover:enabled {
+  background-color: #f8b195;
+  transform: translateY(-2px);  /* Subtle lift */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+}
+
+.recommendation-button:disabled {
+  opacity: 0.5;  /* Subtle opacity */
+  cursor: not-allowed;
+}
+
+/* =========================
+   Video Message Styles
+========================= */
+.video-message {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #ffe5e5;
+  border: 2px solid #ff4d4f;
+  color: #a00;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.video-message p {
+  margin: 0 0 8px 0;
+  font-weight: bold;
+}
+
+.video-message button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #c94f7c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.video-message button:hover {
+  background-color: #f8b195;
+}
+
+/* =========================
+   Movie Category Button Styles
+========================= */
+.movie-category-btn {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-text-color, #fff);
+  font-family: var(--theme-font-family, Arial, sans-serif);
+}
+
+.movie-category-btn:hover:enabled {
+  background-color: #f8b195;
+  transform: translateY(-2px);  /* Slight lift effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+}
+
+.movie-category-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* =========================
+   Responsive Design (Mobile)
+========================= */
+@media (max-width: 768px) {
+  .video-section {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .video-heading {
+    font-size: 1.5rem;
+  }
+
+  .video-message {
+    max-width: 90%;
+  }
+
+  .recommendation-button,
+  .movie-category-btn {
+    padding: 10px 20px;  /* Adjust padding for smaller screens */
+    font-size: 0.9rem;    /* Slightly smaller font */
+  }
+}

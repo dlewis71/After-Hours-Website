@@ -1,0 +1,115 @@
+/* Flex container for Profile and ThemeCustomizer side by side */
+.dashboard-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+:root {
+  --primary-color: #c94f7c;
+  --accent-color: #f8b195;
+  --background-light: #fcefee;
+  --text-color: #333;
+  --white: #ffffff;
+}
+
+/* Dashboard layout */
+.dashboard-flex {
+  display: flex;
+  min-height: 100vh;
+   gap: 2rem;
+  background: var(--background-light);
+  color: var(--text-color);
+  font-family: "Arial", sans-serif;
+   align-items: flex-start;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-nav li {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav li:hover {
+  background: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Topbar */
+.topbar h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Profile form */
+.profile-form-section h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+.profile-form input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.profile-form button {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-form button:hover {
+  opacity: 0.9;
+}

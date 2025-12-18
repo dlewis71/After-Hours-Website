@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome to After Hours Blog",
+    "content": "This is your first post!",
+    "author": "Admin",
+    "date": "2025-11-12"
+  },
+  {
+    "id": 2,
+    "title": "How  do you build a porch?",
+    "content": "This is how you build a porch ....",
+    "author": "Derrick",
+    "date": "2025-11-13"
+  },
+  {
+    "id": 3,
+    "title": "\"What do you think of women\"?",
+    "content": "I think women .....",
+    "author": "Derrick Lewis",
+    "date": "2025-11-13"
+  }
+]

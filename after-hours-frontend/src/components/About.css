@@ -1,0 +1,45 @@
+:root {
+  --font-size: 16px;
+  --font-color: #fff;
+  --primary-color: #c94f7c;
+  --accent-color: #f8b195;
+  --background-color: #000;
+}
+
+.section {
+  padding: 50px 20px;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-size: var(--font-size);
+  transition: all 0.3s ease;
+}
+
+.about-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  color: var(--primary-color);
+  font-size: calc(var(--font-size) * 1.5);
+  margin-bottom: 20px;
+}
+
+.fade-paragraph {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.fade-paragraph.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Example for accent color usage inside paragraph */
+.fade-paragraph strong,
+.fade-paragraph em {
+  color: var(--accent-color);
+}

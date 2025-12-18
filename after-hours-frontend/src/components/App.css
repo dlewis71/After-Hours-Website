@@ -1,0 +1,463 @@
+/* =========================
+   Profile + ThemeCustomizer Side by Side
+========================= */
+.profile-theme-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch; /* equal height */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Each wrapper has its own border, padding, shadow, and transition */
+.profile-wrapper,
+.theme-wrapper {
+  flex: 1; /* equal width */
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: var(--theme-background-color, #fcefee);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  min-height: 100%; /* match heights */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .profile-theme-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .profile-wrapper,
+  .theme-wrapper {
+    width: 100%;
+    height: auto !important;
+  }
+}
+
+/* =========================
+   Profile Card
+========================= */
+.profile-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.profile-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--theme-background-color, #000);
+  color: var(--theme-text-color, #fff);
+  font-family: var(--theme-font-family, Arial, sans-serif);
+  font-size: var(--theme-font-size, 16px);
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Avatar */
+.profile-avatar {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.avatar-img,
+.default-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.avatar-img {
+  border: 3px solid var(--theme-accent-color, #f8b195);
+}
+
+.default-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--theme-accent-color, #f8b19533);
+}
+
+.avatar-edit-label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-text-color, #fff);
+  padding: 0.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar-edit-label input {
+  display: none;
+}
+
+/* Username */
+.profile-username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--theme-primary-color, #c94f7c);
+  margin-bottom: 1rem;
+}
+
+/* Attributes */
+.profile-attributes {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.profile-attribute-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.attribute-label {
+  font-weight: 500;
+  color: var(--theme-primary-color, #c94f7c);
+}
+
+.attribute-value {
+  color: var(--theme-text-color, #fff);
+}
+
+/* Select dropdown */
+.attribute-select {
+  border: 1px solid var(--theme-accent-color, #f8b195);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: var(--theme-font-size, 16px);
+  color: var(--theme-text-color, #fff);
+  background-color: var(--theme-background-color, #000);
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attribute-select:focus {
+  outline: 2px solid var(--theme-primary-color, #c94f7c);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.edit-btn,
+.save-btn {
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-text-color, #fff);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: var(--theme-font-size, 16px);
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover,
+.save-btn:hover {
+  opacity: 0.9;
+}
+
+.cancel-btn {
+  background-color: var(--theme-accent-color, #f8b195);
+  color: var(--theme-text-color, #fff);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: var(--theme-font-size, 16px);
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .profile-card { max-width: 90%; }
+}
+
+@media (max-width: 480px) {
+  .profile-card { padding: 1rem; }
+  .avatar-img,
+  .default-avatar { width: 100px; height: 100px; }
+}
+
+/* =========================
+   Theme Customizer
+========================= */
+.theme-profile-widget {
+  --widget-font-size: 16px;
+  --widget-font-family: 'Arial, sans-serif';
+  --widget-text: #333;
+  --widget-bg: #fcefee;
+  --widget-card-bg: #fff;
+  --widget-primary: #c94f7c;
+  --widget-accent: #f8b195;
+
+  box-sizing: border-box;
+  font-family: var(--widget-font-family);
+  font-size: var(--widget-font-size);
+  color: var(--widget-text);
+  background-color: var(--widget-bg);
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.theme-profile-widget * {
+  box-sizing: inherit;
+}
+
+.theme-profile-widget .customize-theme {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: var(--widget-card-bg);
+  border: 2px solid var(--widget-accent);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.theme-profile-widget .customize-theme h2 {
+  color: var(--widget-primary);
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+/* Font size options */
+.theme-profile-widget .choose-size span {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--widget-accent);
+  margin-right: 8px;
+  display: inline-block;
+  background: var(--widget-card-bg);
+}
+
+.theme-profile-widget .choose-size span.active,
+.theme-profile-widget .choose-size span:hover {
+  background-color: var(--widget-primary);
+  color: white;
+}
+
+/* Color options */
+.theme-profile-widget .choose-color span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  border: 2px solid var(--widget-accent);
+  cursor: pointer;
+}
+
+.theme-profile-widget .choose-color span.active {
+  transform: scale(1.2);
+  border-color: var(--widget-primary);
+}
+
+/* Helper container */
+.theme-profile-widget .tp-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.theme-profile-widget .tp-card {
+  flex: 1 1 300px;
+  border: 2px solid var(--widget-accent);
+  border-radius: 12px;
+  padding: 16px;
+  background-color: var(--widget-card-bg);
+}
+
+/* =========================
+   Music Section
+========================= */
+.music-section {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.music-card {
+  width: 95%;
+  max-width: 1200px;
+  text-align: center;
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.music-card h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.music-card iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  border: 2px solid var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.music-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.music-controls button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.music-controls button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   General Button Styles
+========================= */
+button {
+  border: none;
+  border-radius: 12px;  /* Rounded corners for all buttons */
+  padding: 12px 24px;    /* Comfortable padding */
+  cursor: pointer;
+  font-weight: bold;     /* Bold text */
+  font-size: 1rem;       /* Default font size */
+  transition: all 0.3s ease;  /* Smooth transition for hover and active states */
+  background-color: var(--theme-primary-color, #c94f7c);  /* Default background color */
+  color: var(--theme-text-color, #fff);          /* White text */
+  font-family: var(--theme-font-family, Arial, sans-serif);  /* Match font-family */
+}
+
+/* Hover Effect */
+button:hover:enabled {
+  background-color: #f8b195;  /* Lighter pink for hover */
+  transform: scale(1.05);      /* Slight zoom effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Soft shadow on hover */
+  opacity: 0.9;               /* Slight opacity change */
+}
+
+/* =========================
+   Profile Buttons Styles
+========================= */
+.edit-btn, .save-btn {
+  background-color: var(--theme-primary-color, #c94f7c);  /* Primary color */
+}
+
+.edit-btn:hover, .save-btn:hover {
+  background-color: #f8b195;  /* Lighter pink for hover */
+  transform: scale(1.05);      /* Slight zoom effect */
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background-color: var(--theme-accent-color, #f8b195);  /* Accent color */
+}
+
+.cancel-btn:hover {
+  background-color: #f8b195;  /* Lighter accent color for hover */
+  transform: scale(1.05);      /* Slight zoom effect */
+}
+
+/* =========================
+   Movie Category Button Styles
+========================= */
+.movie-category-btn {
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-text-color, #fff);
+}
+
+.movie-category-btn:hover:enabled {
+  background-color: #f8b195;  /* Lighter pink on hover */
+  transform: scale(1.05);      /* Slight zoom effect */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Soft shadow */
+}
+
+/* =========================
+   Recommendation Button Styles
+========================= */
+.recommendation-button {
+  background-color: var(--theme-primary-color, #c94f7c);
+  color: var(--theme-text-color, #fff);
+}
+
+.recommendation-button:hover:enabled {
+  background-color: #f8b195;  /* Lighter pink for hover */
+  transform: scale(1.05);      /* Slight zoom effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Soft shadow */
+}
+
+/* =========================
+   Responsive Button Styles
+========================= */
+@media (max-width: 768px) {
+  button {
+    font-size: 0.9rem;         /* Slightly smaller font for mobile */
+    padding: 10px 20px;        /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 0.85rem;        /* Even smaller font on very small screens */
+    padding: 8px 16px;         /* Further adjusted padding */
+  }
+}
+

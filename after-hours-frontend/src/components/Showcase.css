@@ -1,0 +1,79 @@
+/* =========================
+   Showcase Section Styling
+========================= */
+.showcase-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--theme-background-color); /* Controlled by Theme */
+}
+
+.main-title {
+  font-size: 4rem;
+  color: var(--theme-primary-color); /* Controlled by Theme */
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.feature-block {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 90%;
+  width: auto;
+  text-align: center;
+  background-color: var(--theme-accent-color); /* Default accent color */
+  color: var(--theme-text-color); /* Default text color */
+}
+
+.feature-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  font-size: 1.25rem;
+  color: var(--theme-text-color); /* Controlled by Theme */
+}
+
+.showcase-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.tagline {
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: var(--theme-text-color); /* Controlled by Theme */
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: var(--theme-text-color); /* Controlled by Theme */
+}
+
+/* =========================
+   Accent Color Classes
+========================= */
+.feature-block.accent-#7CFF91 {
+  background-color: #7CFF91; /* Neon Lime Glow */
+}
+
+.feature-block.accent-#66C3FF {
+  background-color: #66C3FF; /* Sky Burst Blue */
+}
+
+.feature-block.accent-#FF9AD6 {
+  background-color: #FF9AD6; /* Cotton Candy Pink */
+}
+
+.feature-block.accent-#FFB35C {
+  background-color: #FFB35C; /* Mango Splash */
+}
+
+.feature-block.accent-#C49AFF {
+  background-color: #C49AFF; /* Lavender Glow */
+}

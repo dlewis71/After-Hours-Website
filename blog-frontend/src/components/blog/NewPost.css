@@ -1,0 +1,99 @@
+/* src/components/blog/NewPost.css */
+.newpost-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--background-light);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.newpost-container:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.newpost-container h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.newpost-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.newpost-container input,
+.newpost-container textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  font-family: inherit;
+}
+
+.newpost-container input:focus,
+.newpost-container textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(201, 79, 124, 0.3);
+}
+
+.newpost-container textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.newpost-container button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  color: var(--white);
+}
+
+.newpost-container button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.newpost-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #f5f5f5;
+  color: var(--text-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.newpost-back:hover {
+  background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .newpost-container {
+    padding: 1.5rem;
+  }
+
+  .newpost-container h1 {
+    font-size: 2rem;
+  }
+
+  .newpost-container button {
+    width: 100%;
+  }
+}

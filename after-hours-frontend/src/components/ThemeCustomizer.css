@@ -1,0 +1,298 @@
+/* =========================
+   Root Variables / Theme Defaults
+========================= */
+:root {
+  --theme-font-size: 16px;
+  --theme-font-family: 'Arial, sans-serif';
+  --theme-text-color: #fff;
+  --theme-background-color: #000;
+  --theme-card-bg: #111;
+  --theme-primary-color: #c94f7c;
+  --theme-accent-color: #f8b195;
+  --theme-button-text-color: #fff;
+
+  --nav-height: 60px;
+  --timer-height: 50px;
+}
+
+/* =========================
+   Global Reset & Layout
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--theme-font-family);
+  font-size: var(--theme-font-size);
+  color: var(--theme-text-color);
+  background-color: var(--theme-background-color);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,h2,h3,h4,h5,h6,p,span,li,a {
+  color: var(--theme-text-color);
+  transition: color 0.3s ease;
+}
+
+a { text-decoration: none; }
+
+/* =========================
+   Global Card
+========================= */
+.card {
+  border-radius: 2rem; /* profile-style rounded corners */
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--theme-card-bg);
+  color: var(--theme-text-color);
+  font-family: var(--theme-font-family);
+  font-size: var(--theme-font-size);
+  transition: all 0.3s ease;
+  border: 2px solid var(--theme-accent-color);
+  width: 100%;
+}
+
+/* =========================
+   Profile + ThemeCustomizer Layout
+========================= */
+.profile-theme-section {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-wrapper,
+.theme-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Profile Card
+========================= */
+.profile-card {
+  /* REPLACED composes: card */
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--theme-card-bg);
+  border: 2px solid var(--theme-accent-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+/* Avatar */
+.profile-avatar {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.avatar-img,
+.default-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.avatar-img {
+  border: 3px solid var(--theme-accent-color);
+}
+
+.default-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(248,177,149,0.2);
+}
+
+.avatar-edit-label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--theme-primary-color);
+  color: var(--theme-text-color);
+  padding: 0.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.avatar-edit-label input {
+  display: none;
+}
+
+/* Username */
+.profile-username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--theme-primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Attributes */
+.profile-attributes {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.profile-attribute-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.attribute-label {
+  font-weight: 500;
+  color: var(--theme-primary-color);
+}
+
+.attribute-value {
+  color: var(--theme-text-color);
+}
+
+.attribute-select {
+  border: 1px solid var(--theme-accent-color);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: var(--theme-font-size);
+  color: var(--theme-text-color);
+  background-color: var(--theme-background-color);
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.attribute-select:focus {
+  outline: 2px solid var(--theme-primary-color);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.edit-btn,
+.save-btn {
+  background-color: var(--theme-primary-color);
+  color: var(--theme-text-color);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: var(--theme-font-size);
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background-color: var(--theme-accent-color);
+  color: var(--theme-text-color);
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: var(--theme-font-size);
+  transition: all 0.2s ease;
+}
+
+/* =========================
+   Theme Customizer Card
+========================= */
+.theme-wrapper .customize-theme {
+  /* REPLACED composes: card */
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--theme-card-bg);
+  border: 2px solid var(--theme-accent-color);
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.theme-wrapper .customize-theme h2 {
+  color: var(--theme-primary-color);
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+/* Font size & color options */
+.choose-size span,
+.choose-color span {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--theme-accent-color);
+  margin-right: 8px;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.choose-size span.active,
+.choose-size span:hover,
+.choose-color span.active {
+  background-color: var(--theme-primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Helper container */
+.tp-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.tp-card {
+  /* REPLACED composes: card */
+  border-radius: 2rem;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--theme-card-bg);
+  border: 2px solid var(--theme-accent-color);
+}
+
+/* =========================
+   Responsive Tweaks
+========================= */
+@media (max-width: 900px) {
+  .profile-card { max-width: 90%; }
+}
+
+@media (max-width: 480px) {
+  .profile-card { padding: 1rem; }
+  .avatar-img,
+  .default-avatar { width: 100px; height: 100px; }
+}

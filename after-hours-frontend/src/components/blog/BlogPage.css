@@ -1,0 +1,182 @@
+/* =========================
+   Blog Page Styles
+   NOTE: Using global theme variables for flexibility.
+========================= */
+
+/* =========================
+   Blog Page Wrapper
+========================= */
+.blogpage-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* Use Global Theme Background */
+  background-color: var(--background-light);
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+/* =========================
+   Blog Container
+========================= */
+.blog-page {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  /* Keep container white so it pops against colored backgrounds */
+  background-color: var(--card-bg); /* Use global card background */
+  
+  color: var(--text-color); /* Dark text color for readability */
+  
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   Blog Title
+========================= */
+.blog-title {
+  font-size: 2rem;
+  font-weight: 700;
+  
+  color: var(--primary-color);
+  
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-family: var(--font-family);
+}
+
+/* =========================
+   Messages
+========================= */
+.locked-message,
+.no-posts,
+.loading {
+  text-align: center;
+  font-style: italic;
+  color: var(--accent-color);
+  font-family: var(--font-family);
+}
+
+/* =========================
+   Post Card
+========================= */
+.post-card {
+  background-color: var(--card-bg-light); /* Slight contrast against container background */
+  
+  /* Use Global Accent Color for border */
+  border: 2px solid var(--accent-color);
+  
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  color: var(--text-color); /* Dark text color inside post card */
+}
+
+.post-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-family: var(--font-family);
+}
+
+.post-content {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.post-author {
+  font-size: 0.8rem;
+  color: var(--secondary-text-color);
+}
+
+/* =========================
+   Post Actions / Buttons
+========================= */
+.post-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: var(--font-family);
+}
+
+.edit-btn {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+}
+
+.delete-btn {
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Textareas & Create Post
+========================= */
+.create-post-form,
+.create-post-input,
+.create-post-textarea,
+.post-edit-textarea {
+  width: 100%;
+  padding: 10px;
+  
+  font-family: var(--font-family);
+  
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  
+  border: 2px solid var(--accent-color);
+  
+  border-radius: 12px;
+}
+
+.create-post-input {
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+.create-post-textarea, 
+.post-edit-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.create-post-input::placeholder,
+.create-post-textarea::placeholder,
+.post-edit-textarea::placeholder {
+  color: var(--placeholder-color);
+  opacity: 0.8;
+}
+
+.create-post-input:focus,
+.create-post-textarea:focus,
+.post-edit-textarea:focus {
+  outline: none;
+  
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}

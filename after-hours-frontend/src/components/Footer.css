@@ -1,0 +1,44 @@
+/* =========================
+   Footer
+========================= */
+.footer {
+  flex-shrink: 0;              /* Don't shrink, stick naturally at bottom */
+  padding: 0 2rem 2rem 2rem;   /* No top padding */
+  background-color: var(--background-color);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Footer links */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links button {
+  margin: 0 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.footer-links button:hover {
+  color: var(--accent-color);
+  background-color: rgba(0,0,0,0.05); /* subtle hover bg */
+}
+
+/* Footer text */
+.footer-text {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

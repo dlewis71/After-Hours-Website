@@ -1,0 +1,23 @@
+/* src/components/blog/BlogList.css */
+
+/* Smooth card hover effect */
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient buttons */
+.btn-gradient {
+  background: linear-gradient(90deg, #c94f7c 0%, #f8b195 100%);
+  color: white;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
