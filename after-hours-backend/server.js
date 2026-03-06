@@ -1,4 +1,4 @@
-// server.js
+// server.js (demo-friendly)
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
@@ -55,8 +55,6 @@ app.use(cors({
 }));
 
 // --- Middleware ---
-// --- Middleware ---
-// Increase the limit to 10MB (or more) to handle base64 images
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
@@ -86,13 +84,26 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("New client connected:", socket.id);
 
-  socket.on("chatMessage", (msg) => {
-    io.emit("chatMessage", msg); // broadcast to all clients
+  socket.on("chatMessage", async (msg) => {
+    try {
+      io.emit("chatMessage", msg); // broadcast to all clients
+    } catch (err) {
+      console.error("Socket emit error:", err);
+    }
   });
 
   socket.on("disconnect", () => {
     console.log("Client disconnected:", socket.id);
   });
+});
+
+// --- Handle uncaught exceptions / unhandled rejections ---
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection:", reason);
 });
 
 // --- Start server with cleanup ---
@@ -101,7 +112,6 @@ const PORT = process.env.PORT || 5000;
 mongoose.connection.once("open", async () => {
   console.log("MongoDB connected...");
 
-  // Run cleanup before server starts
   await cleanupExpiredPosts();
 
   server.listen(PORT, () => {
