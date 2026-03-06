@@ -1,0 +1,12 @@
+{
+  "name": "after-hours-fullstack",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "start:frontend": "cd after-hours-frontend && npm run dev",
+    "start:backend": "cd after-hours-backend && npm run dev",
+    "start:all": "concurrently \"npm run start:frontend\" \"npm run start:backend\""
+  }
+}
