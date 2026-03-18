@@ -22,15 +22,15 @@ const ThemeCustomizer = forwardRef((props, ref) => {
   };
 
   const backgroundOptions = [
-    { bg: "#F5F5F5", label: "Light" },
-    { bg: "#7FFFD4", label: "Dim" },
-    { bg: "#0D1A4C", label: "Dark" },
+    { bg: "#FFF5EE", label: "Light" },
+    { bg: "#5B7DBA", label: "Dim" },
+    { bg: "#9C6CFF", label: "Dark" },
     { bg: "#000000", label: "Black" },
   ];
 
   const colorsText = ["#32F35A", "#3A7BFF", "#FF4F9A", "#FF7A3D", "#A45CFF"];
   const colorsPrimary = ["#0E7A45", "#2B2C7C", "#D11378", "#B84412", "#6E22C7"];
-  const colorsAccent = ["#7CFF91", "#66C3FF", "#FF9AD6", "#FFB35C", "#C49AFF"];
+  const colorsAccent = ["#7CFF91", "#66C3FF", "#FF9AD6", "#FFB35C", "#1A2A44"];
 
   // Standard JS Style Objects (No Tailwind classes here)
   const sectionStyle = { marginBottom: "1rem" };
